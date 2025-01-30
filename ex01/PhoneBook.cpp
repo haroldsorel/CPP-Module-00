@@ -30,25 +30,20 @@ void    PhoneBook::get_information(void)
         if(!std::getline(std::cin, buffer))
 			exit(0);
         std::cout << std::endl;
-        if (std::cin.eof() == true)
-		{
-			std::cin.clear();
-            std::cout << std::endl;
-			continue;
-		}
         try {index = std::stoi(buffer);}
         catch (...)
         {
-            std::cout << "Invalid Input! please enter an integer between 0 and 7." << std::endl;
+            std::cout << "Invalid Input! please enter an integer between 1 and 8." << std::endl;
             std::cout << std::endl;
             continue ;
         }
-        if (index < 0 || index > 7)
-            std::cout << "Index out of bounds! Choose an index between 0 and 7." << std::endl;
+        if (index < 1 || index > 8)
+            std::cout << "Index out of bounds! Choose an index between 1 and 8." << std::endl;
         else
             break ;
         std::cout << std::endl;
     }
+    index--;
     this->contacts[index].display_information();
 }
 

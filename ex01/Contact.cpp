@@ -14,23 +14,19 @@
 Contact::Contact(){}
 Contact::~Contact(){}
 
-void    display_line(std::string str, int flag)
+void display_line(std::string str, int flag)
 {
-    int len;
-
-    len = str.length();
-    if (len > 10)
+    if (str.length() > 10)
     {
-        str[9] = '.';
-        for (int j = 10; j < len; j++)
-            str[j] = '\0';
+        str = str.substr(0, 9) + ".";
     }
-    for (int i = 0; i < 10 - len; i++)
-        std::cout << " ";
-    std::cout << str;
+    
+    std::cout << std::setw(10) << std::right << str;
+    
     if (flag == 1)
         std::cout << "|";
 }
+
 
 void    Contact::display_information(void)
 {
@@ -58,25 +54,40 @@ void    Contact::set_contact(int index)
 {
     std::string buffer;
 
-    this->index = index + 48;
+    this->index = index + + 1 + 48;
 
-    std::cout << "Enter a first name: ";
-    std::getline(std::cin, buffer);
-    this->first_name = buffer;
-
-    std::cout << "Enter a last name: ";
-    std::getline(std::cin, buffer);
-    this->last_name = buffer;
-
-    std::cout << "Enter a nickname: ";
-    std::getline(std::cin, buffer);
-    this->nickname = buffer;
-
-    std::cout << "Enter a phone number: ";
-    std::getline(std::cin, buffer);
-    this->phone_number = buffer;
-
-    std::cout << "Enter a dark secret: ";
-    std::getline(std::cin, buffer);
-    this->dark_secret = buffer;
+    while (buffer == "")
+    {
+        std::cout << "Enter a first name: ";
+        std::getline(std::cin, buffer);
+        this->first_name = buffer;
+    }
+    buffer.clear();
+    while (buffer == "")
+    {
+        std::cout << "Enter a last name: ";
+        std::getline(std::cin, buffer);
+        this->last_name = buffer;
+    }
+    buffer.clear();
+    while (buffer == "")
+    {
+        std::cout << "Enter a nickname: ";
+        std::getline(std::cin, buffer);
+        this->nickname = buffer;
+    }
+    buffer.clear();
+    while (buffer == "")
+    {
+        std::cout << "Enter a phone number: ";
+        std::getline(std::cin, buffer);
+        this->phone_number = buffer;
+    }
+    buffer.clear();
+    while (buffer == "")
+    {
+        std::cout << "Enter a dark secret: ";
+        std::getline(std::cin, buffer);
+        this->dark_secret = buffer;
+    }
 }
