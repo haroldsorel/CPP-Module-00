@@ -20,7 +20,6 @@ void display_line(std::string str, int flag)
     {
         str = str.substr(0, 9) + ".";
     }
-    
     std::cout << std::setw(10) << std::right << str;
     
     if (flag == 1)
@@ -59,35 +58,40 @@ void    Contact::set_contact(int index)
     while (buffer == "")
     {
         std::cout << "Enter a first name: ";
-        std::getline(std::cin, buffer);
+        if(!std::getline(std::cin, buffer))
+			exit(0);
         this->first_name = buffer;
     }
     buffer.clear();
     while (buffer == "")
     {
         std::cout << "Enter a last name: ";
-        std::getline(std::cin, buffer);
+        if(!std::getline(std::cin, buffer))
+			exit(0);
         this->last_name = buffer;
     }
     buffer.clear();
     while (buffer == "")
     {
         std::cout << "Enter a nickname: ";
-        std::getline(std::cin, buffer);
+        if(!std::getline(std::cin, buffer))
+			exit(0);
         this->nickname = buffer;
     }
     buffer.clear();
     while (buffer == "")
     {
         std::cout << "Enter a phone number: ";
-        std::getline(std::cin, buffer);
+        if(!std::getline(std::cin, buffer))
+			exit(0);
         this->phone_number = buffer;
     }
     buffer.clear();
     while (buffer == "")
     {
         std::cout << "Enter a dark secret: ";
-        std::getline(std::cin, buffer);
+        if(!std::getline(std::cin, buffer))
+			exit(0);
         this->dark_secret = buffer;
     }
 }
