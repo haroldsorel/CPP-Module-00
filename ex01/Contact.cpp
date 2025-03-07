@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hsorel <marvin@42.fr>                      +#+  +:+       +#+        */
+/*   By: hsorel <hsorel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/07 15:19:18 by hsorel            #+#    #+#             */
-/*   Updated: 2025/03/07 15:19:21 by hsorel           ###   ########.fr       */
+/*   Created: 2025/01/20 19:12:07 by haroldsorel       #+#    #+#             */
+/*   Updated: 2025/03/07 15:44:38 by hsorel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,8 @@
 Contact::Contact(){}
 Contact::~Contact(){}
 
-std::string remove_non_printables(std::string str)
-{
-    for (size_t i = 0; i < str.length(); i++)
-    {
-        if (static_cast<unsigned char>(str[i]) < 32 || static_cast<unsigned char>(str[i]) == 127)
-        {
-            str.erase(i, 1);
-            i--;
-        }
-    }
-    return (str);
-}
-
 void display_line(std::string str, int flag)
 {
-    std::string clean_string = remove_non_printables(str);
-
     if (str.length() > 10)
     {
         str = str.substr(0, 9) + ".";
@@ -64,7 +49,6 @@ void    Contact::display_contact(void)
     display_line(this->nickname, 0);
     std::cout << std::endl; 
 }
-
 void    Contact::set_contact(int index)
 {
     std::string buffer;
