@@ -6,7 +6,7 @@
 /*   By: hsorel <hsorel@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/20 19:12:53 by haroldsorel       #+#    #+#             */
-/*   Updated: 2025/03/07 16:04:09 by hsorel           ###   ########.fr       */
+/*   Updated: 2025/03/07 16:08:34 by hsorel           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,8 +27,6 @@ int main(int argc, char **argv)
         str = argv[i];
         for (size_t j = 0; j < str.length(); j++)
             std::putchar(std::toupper(str[j]));
-        //if (i < argc - 1)
-        //    std::putchar(' ');
     }
     std::putchar('\n');
     return (0);
